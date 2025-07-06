@@ -1,0 +1,22 @@
+.btn {
+  cursor: pointer;
+  border-radius: 30px;
+  padding: 5px 15px;
+}
+
+.btn:hover {
+  opacity: 0.9;
+}
+
+.btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.btn--primary {
+  background-color: #f12b70;
+}
+
+.btn--secondary {
+  background-color: #2b253f;
+}
