@@ -2,7 +2,9 @@ import { useEffect, useState } from "react";
 import "./App.css";
 import ListFilms from "./components/ListFilms/ListFilms";
 
-const API_KEY = "6KVSF1N-X4W406N-KD3ZNY9-CR3124K";
+// Саша const API_KEY = "6KVSF1N-X4W406N-KD3ZNY9-CR3124K";
+// мой
+const API_KEY = "WSMDW74-8AV4C0V-MZ1FEF8-MV8J6DQ";
 
 function App() {
   const [films, setFilms] = useState([]);
@@ -19,7 +21,7 @@ function App() {
       .then((data) => setFilms(data.docs));
   }, []);
 
-  return <ListFilms></ListFilms>;
+  return films && <ListFilms films={films}></ListFilms>;
 }
 
 export default App;

@@ -1,11 +1,20 @@
 import "./film.css";
 import Button from "../Button/Button";
 
-function Film() {
+function Film({ poster, name, genres, year, votes, type, description }) {
+  console.log(1111, genres);
+
+  const getShortText = (str, count) => {
+    if (str.length > count) {
+      return str.slice(0, count - 3) + "...";
+    }
+    return str;
+  };
+
   return (
     <div className="film">
       <header className="film__img-wrapper">
-        <img className="film__img" src="https://storage.myseldon.com/news-pict-b2/B29C92AED1689351A819301A716F9763" alt="5 сантиметров в секунду" />
+        <img className="film__img" src={poster?.previewUrl} alt={name ? name : "Название не найдено"} />
       </header>
       <footer className="film__content">
         {/* <div className="film__control">
@@ -18,26 +27,26 @@ function Film() {
           </div>
         </div> */}
 
-        <h3 className="film__name">Кракен</h3>
+        <h3 className="film__name">{name ? name : "Название не найдено"}</h3>
         <div className="film__props">
           <div className="film__props-item">
             <span className="film__prop-title">Genrer</span>
-            <span className="film__prop-text">Drama</span>
+            <span className="film__prop-text">{genres ? getShortText(genres[0].name, 9) : "нет"}</span>
           </div>
           <div className="film__props-item">
             <span className="film__prop-title">Release</span>
-            <span className="film__prop-text">2025</span>
+            <span className="film__prop-text">{year ? year : "нет"}</span>
           </div>
           <div className="film__props-item">
-            <span className="film__prop-title">Runtime</span>
-            <span className="film__prop-text">2h 20m</span>
+            <span className="film__prop-title">type</span>
+            <span className="film__prop-text">{type}</span>
           </div>
           <div className="film__props-item">
             <span className="film__prop-title">iMDB</span>
-            <span className="film__prop-text">4.8</span>
+            <span className="film__prop-text">{votes?.imdb}</span>
           </div>
         </div>
-        <p className="film__description">Lorem ipsum dolor sit amet.</p>
+        <p className="film__description">{description ? getShortText(description, 55) : "нет описания"}</p>
         <Button use={"primary"} handler={() => {}}>
           Buy ticket
         </Button>
