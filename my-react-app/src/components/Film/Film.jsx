@@ -1,18 +1,23 @@
 import "./film.css";
 import Button from "../Button/Button";
 import { getShortText } from "../../utils";
+import { FaFilm } from "react-icons/fa";
 
 function Film({ poster, name, genres, year, votes, type, description }) {
-  console.log(1111, genres);
+  // console.log(1111, genres);
 
   return (
     <div className="film">
       <header className="film__img-wrapper">
-        <img
-          className="film__img"
-          src={poster?.previewUrl}
-          alt={name ? name : "Название не найдено"}
-        />
+        {poster?.previewUrl ? (
+          <img
+            className="film__img"
+            src={poster?.previewUrl}
+            alt={name ? name : "Название не найдено"}
+          />
+        ) : (
+          <FaFilm></FaFilm>
+        )}
       </header>
       <footer className="film__content">
         {/* <div className="film__control">
