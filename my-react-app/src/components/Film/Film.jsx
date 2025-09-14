@@ -1,7 +1,7 @@
 import "./film.css";
 import Button from "../Button/Button";
 import { getShortText } from "../../utils";
-import { FaFilm } from "react-icons/fa";
+import { FaFilm, FaPlay, FaShare, FaUser } from "react-icons/fa";
 
 function Film({ poster, name, genres, year, votes, type, description }) {
   // console.log(1111, genres);
@@ -20,15 +20,21 @@ function Film({ poster, name, genres, year, votes, type, description }) {
         )}
       </header>
       <footer className="film__content">
-        {/* <div className="film__control">
+        <div className="film__control">
           <div className="film__control-left">
-            <button className="btn btn--primary"></button>
+            <Button use={"primary"} handler={() => {}}>
+              <FaPlay></FaPlay>
+            </Button>
           </div>
           <div className="film__control-right">
-            <button className="btn btn--secondary"></button>
-            <button className="btn btn--secondary"></button>
+            <Button use={"secondary"} handler={() => {}}>
+              <FaUser></FaUser>
+            </Button>
+            <Button use={"secondary"} handler={() => {}}>
+              <FaShare></FaShare>
+            </Button>
           </div>
-        </div> */}
+        </div>
 
         <h3 className="film__name">{name ? name : "Название не найдено"}</h3>
         <div className="film__props">
