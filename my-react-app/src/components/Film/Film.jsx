@@ -1,20 +1,18 @@
 import "./film.css";
 import Button from "../Button/Button";
+import { getShortText } from "../../utils";
 
 function Film({ poster, name, genres, year, votes, type, description }) {
   console.log(1111, genres);
 
-  const getShortText = (str, count) => {
-    if (str.length > count) {
-      return str.slice(0, count - 3) + "...";
-    }
-    return str;
-  };
-
   return (
     <div className="film">
       <header className="film__img-wrapper">
-        <img className="film__img" src={poster?.previewUrl} alt={name ? name : "Название не найдено"} />
+        <img
+          className="film__img"
+          src={poster?.previewUrl}
+          alt={name ? name : "Название не найдено"}
+        />
       </header>
       <footer className="film__content">
         {/* <div className="film__control">
@@ -31,7 +29,9 @@ function Film({ poster, name, genres, year, votes, type, description }) {
         <div className="film__props">
           <div className="film__props-item">
             <span className="film__prop-title">Genrer</span>
-            <span className="film__prop-text">{genres ? getShortText(genres[0].name, 9) : "нет"}</span>
+            <span className="film__prop-text">
+              {genres ? getShortText(genres[0].name, 9) : "нет"}
+            </span>
           </div>
           <div className="film__props-item">
             <span className="film__prop-title">Release</span>
@@ -46,7 +46,9 @@ function Film({ poster, name, genres, year, votes, type, description }) {
             <span className="film__prop-text">{votes?.imdb}</span>
           </div>
         </div>
-        <p className="film__description">{description ? getShortText(description, 55) : "нет описания"}</p>
+        <p className="film__description">
+          {description ? getShortText(description, 55) : "нет описания"}
+        </p>
         <Button use={"primary"} handler={() => {}}>
           Buy ticket
         </Button>
